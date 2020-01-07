@@ -42,7 +42,7 @@ const defaultHeadCellStyles = theme => ({
     display: 'flex',
     verticalAlign: 'top',
     cursor: 'pointer',
-    alignItems: "center"
+    alignItems: 'center',
   },
   sortLabelRoot: {
     height: '10px',

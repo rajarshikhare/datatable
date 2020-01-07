@@ -42,7 +42,7 @@ export const defaultViewColStyles = theme => ({
 });
 
 /**
- * Deprecated component 
+ * Deprecated component
  */
 class TableViewCol extends React.Component {
   static propTypes = {

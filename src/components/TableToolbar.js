@@ -17,8 +17,7 @@ import find from 'lodash.find';
 import { withStyles } from '@material-ui/core/styles';
 import { createCSVDownload, downloadCSV } from '../utils';
 import cloneDeep from 'lodash.clonedeep';
-import MultiSelectWithSearch from "./MultiSelectWithSearch";
-
+import MultiSelectWithSearch from './MultiSelectWithSearch';
 
 export const defaultToolbarStyles = theme => ({
   root: {},
@@ -235,22 +234,22 @@ class TableToolbar extends React.Component {
             options.customSearchRender ? (
               options.customSearchRender(searchText, this.handleSearch, this.hideSearch, options)
             ) : (
-                <TableSearch
-                  searchText={searchText}
-                  onSearch={this.handleSearch}
-                  onHide={this.hideSearch}
-                  options={options}
-                />
-              )
+              <TableSearch
+                searchText={searchText}
+                onSearch={this.handleSearch}
+                onHide={this.hideSearch}
+                options={options}
+              />
+            )
           ) : typeof title !== 'string' ? (
             title
           ) : (
-                <div className={classes.titleRoot} aria-hidden={'true'}>
-                  <Typography variant="h6" className={classes.titleText}>
-                    {title}
-                  </Typography>
-                </div>
-              )}
+            <div className={classes.titleRoot} aria-hidden={'true'}>
+              <Typography variant="h6" className={classes.titleText}>
+                {title}
+              </Typography>
+            </div>
+          )}
         </div>
         <div className={classes.actions}>
           {options.search && (
@@ -298,10 +297,10 @@ class TableToolbar extends React.Component {
           {options.viewColumns && (
             <MultiSelectWithSearch
               handleChange={(options, index) => toggleViewColumn(index)}
-              options={columns.map((c,i) => ({
+              options={columns.map((c, i) => ({
                 value: c.name,
                 checked: c.display === 'true',
-                key: i
+                key: i,
               }))}
               name="Column"
               icon={<ViewColumnIcon />}
@@ -311,8 +310,8 @@ class TableToolbar extends React.Component {
                     Select column to be displayed
                   </Typography>
                 ),
-                position: "bottom",
-                enterDelay: 1000
+                position: 'bottom',
+                enterDelay: 1000,
               }}
             />
           )}
