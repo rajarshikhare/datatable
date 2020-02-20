@@ -297,11 +297,13 @@ class TableToolbar extends React.Component {
           {options.viewColumns && (
             <MultiSelectWithSearch
               handleChange={(options, index) => toggleViewColumn(index)}
-              options={columns.map((c, i) => ({
-                value: c.name,
-                checked: c.display === 'true',
-                key: i,
-              }))}
+              options={columns
+                .filter(c => c.display !== 'excluded' && c.viewColumns !== false)
+                .map((c, i) => ({
+                  value: c.name,
+                  checked: c.display === 'true',
+                  key: i,
+                }))}
               name="Column"
               icon={<ViewColumnIcon />}
               tooltipProps={{
